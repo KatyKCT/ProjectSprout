@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BranchInfo : MonoBehaviour
 {
-
-
     public string branchType;
     public string sproutType;
     public int currentHeigth;
