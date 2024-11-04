@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 5598688177690411412}
   - component: {fileID: 7699087978427590213}
   - component: {fileID: 5263201657528776849}
+  - component: {fileID: 8687204016300313632}
   m_Layer: 0
   m_Name: GuerillaSprout1
   m_TagString: Untagged
@@ -157,3 +158,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce28e978085906428e16829e3d7c0d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  growthSpeed: 0
+  baseDamage: 0
+  baseAttackSpeed: 0
+  baseRange: 0
+--- !u!114 &8687204016300313632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8706216440522022449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2186a57432f2f9140bd3d32ddbb116ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growthSpeed: 0
+  baseDamage: 0
+  baseAttackSpeed: 0
+  baseRange: 0

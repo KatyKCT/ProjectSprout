@@ -11,14 +11,6 @@ public abstract class Branch : MonoBehaviour
 
     public bool onlySpawnSprout;
 
-    private void Start()
-    {
-        /*
-        this.branchType = GetComponent<BranchInfo>().branchType;
-        this.sproutType = GetComponent<BranchInfo>().sproutType;
-        this.currentHeigth = GetComponent<BranchInfo>().currentHeigth;
-        */
-    }
 
 
     public void SpawnBranchPlace(float x, float y)
