@@ -10,6 +10,7 @@ public abstract class Sprout : MonoBehaviour
     public float baseDamage;
     public float baseAttackSpeed;
     public float baseRange;
+    public float baseKnockback;
     float localGrowthRate;
 
     public string projectileType;
@@ -63,6 +64,7 @@ public abstract class Sprout : MonoBehaviour
                 //Apply force and direction to the dart
                 spawnedProjectile.GetComponent<Rigidbody2D>().AddForce(200 * direction);
                 spawnedProjectile.transform.rotation = Quaternion.FromToRotation(Vector3.right, direction);
+                spawnedProjectile.GetComponent<Projectile>().knockback = this.baseKnockback;
 
                 yield return new WaitForSecondsRealtime(baseAttackSpeed);
             }

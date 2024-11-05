@@ -11,6 +11,7 @@ public class BaseModule : MonoBehaviour
     public float baseDamage;
     public float baseAttackSpeed;
     public float baseRange;
+    public float baseKnockback;
     public int maxHeight;
     public int maxHeigthAverage;
 

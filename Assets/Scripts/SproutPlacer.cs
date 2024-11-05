@@ -22,14 +22,12 @@ public class SproutPlacer : MonoBehaviour
         sproutPrefabModules = Resources.LoadAll(sproutType);
 
 
-        StartCoroutine(SpawnRandomSprout());
+        SpawnRandomSprout();
     }
 
 
-    IEnumerator SpawnRandomSprout()
+    public void SpawnRandomSprout()
     {
-        yield return new WaitForSeconds(growthSpeed * Random.Range(0f, 0f));
-
         if (isAvailable == true)
         {
             GameObject toSpawn = (GameObject)sproutPrefabModules[Random.Range(0, sproutPrefabModules.Length)];

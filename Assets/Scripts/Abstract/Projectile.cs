@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
 {
 
     public float baseDamage;
-    //public float knockBack;
+    public float knockback;
 
     private void Start()
     {
@@ -18,6 +18,7 @@ public class Projectile : MonoBehaviour
         if(collision.CompareTag("Enemy"))
         {
             collision.GetComponent<EnemyInfo>().AlterHealth(-(baseDamage * Random.Range(0.8f,1.2f)));
+            collision.GetComponent<Rigidbody2D>().AddForce(new Vector2(knockback * 1,0));
             Destroy(gameObject);
         }
     }

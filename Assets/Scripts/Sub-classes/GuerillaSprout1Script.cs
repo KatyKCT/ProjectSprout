@@ -15,6 +15,7 @@ public class GuerillaSprout1Script : Sprout
         this.baseDamage = GetComponentInParent<BaseModule>().baseDamage;
         this.baseAttackSpeed = GetComponentInParent<BaseModule>().baseAttackSpeed;
         this.baseRange = GetComponentInParent<BaseModule>().baseRange;
+        this.baseKnockback = GetComponentInParent<BaseModule>().baseKnockback;
 
         swayOffset = Random.Range(-10, 10);
 

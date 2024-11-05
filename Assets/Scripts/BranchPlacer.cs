@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class BranchPlacer : MonoBehaviour
 {
-
-    float growthSpeed;
-    int maxHeight;
-    
-    
-    
+        
     public int currentHeigth;
     public string branchType;
     public string sproutType;
@@ -20,22 +15,16 @@ public class BranchPlacer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        growthSpeed = GetComponentInParent<BaseModule>().growthSpeed;
-        maxHeight = GetComponentInParent<BaseModule>().maxHeight;
-
-
-
+       
         branchPrefabModules = Resources.LoadAll(branchType);
 
 
-        StartCoroutine(SpawnRandomBranch());
+        SpawnRandomBranch();
     }
 
 
-    IEnumerator SpawnRandomBranch()
+    public void SpawnRandomBranch()
     {
-        yield return new WaitForSeconds(growthSpeed * Random.Range(0f,0f));
-
         if (isAvailable == true)
         {
             GameObject toSpawn = (GameObject)branchPrefabModules[Random.Range(0, branchPrefabModules.Length)];
