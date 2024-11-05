@@ -12,6 +12,7 @@ public abstract class Sprout : MonoBehaviour
     public float baseRange;
     float localGrowthRate;
 
+    public string projectileType;
     public bool isIdle = true;
 
     private void Awake()
@@ -35,29 +36,42 @@ public abstract class Sprout : MonoBehaviour
 
     }
 
-    public void ShotClosestEnemy()
+    public IEnumerator ShotClosestEnemy()
     {
-        //Find closest enemy within range
-
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position - new Vector3(baseRange / 2, 0, 0), new Vector2(baseRange, baseRange), 0, new Vector2(1, 0));
-        Debug.DrawRay(transform.position - new Vector3(baseRange / 2, 0, 0), new Vector2(baseRange, 0), Color.red);
-
-        if (hit)
+        while (true)
         {
-            isIdle = false;
-            Vector3 direction = hit.transform.position - this.transform.position;
-            this.transform.rotation = Quaternion.FromToRotation(Vector3.right, direction);
+            //Find closest enemy within range
+            RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(baseRange, baseRange), 0, new Vector2(0, 0));
+            Debug.DrawRay(transform.position - new Vector3(baseRange / 2, 0, 0), new Vector2(baseRange, 0), Color.red);
+
+            if (hit && hit.collider.CompareTag("Enemy"))
+            {
+                isIdle = false;
+
+                //Determine direction to the enemy from sprout
+                Vector3 direction = hit.transform.position - this.transform.position;
+                this.transform.rotation = Quaternion.FromToRotation(Vector3.right, direction);
+
+
+                //Initialize a dart
+                GameObject spawnedProjectile = (GameObject)Instantiate(Resources.Load(projectileType), this.transform.position, Quaternion.identity);
+                spawnedProjectile.GetComponent<Projectile>().baseDamage = this.baseDamage;
+
+                //Apply force and direction to the dart
+                spawnedProjectile.GetComponent<Rigidbody2D>().AddForce(200 * direction);
+                spawnedProjectile.transform.rotation = Quaternion.FromToRotation(Vector3.right, direction);
+
+                yield return new WaitForSecondsRealtime(baseAttackSpeed);
+            }
+            else
+            {
+                isIdle = true;
+            }
+
+            
+            yield return new WaitForFixedUpdate();
+
         }
-        else
-        {
-            isIdle = true;
-        }
-
-        //Determine direction to the enemy from sprout
-
-        //Initialize a dart
-
-        //Apply force and direction to the dart
 
     }
 

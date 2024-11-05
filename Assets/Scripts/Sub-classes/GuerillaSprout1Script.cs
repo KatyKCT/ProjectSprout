@@ -9,6 +9,8 @@ public class GuerillaSprout1Script : Sprout
 
     void Start()
     {
+        projectileType = "GuerillaProjectile1";
+
         this.growthSpeed = GetComponentInParent<BaseModule>().growthSpeed;
         this.baseDamage = GetComponentInParent<BaseModule>().baseDamage;
         this.baseAttackSpeed = GetComponentInParent<BaseModule>().baseAttackSpeed;
@@ -18,7 +20,7 @@ public class GuerillaSprout1Script : Sprout
 
         GetComponent<Transform>().localScale = new Vector3(0.05f, 0.05f, 1); //Makes the sprout small so it can grow
         StartCoroutine(Growing());
-
+        StartCoroutine(ShotClosestEnemy());
 
     }
 
@@ -31,6 +33,5 @@ public class GuerillaSprout1Script : Sprout
             SwaySprout(swayOffset);
         }
 
-        ShotClosestEnemy();
     }
 }
