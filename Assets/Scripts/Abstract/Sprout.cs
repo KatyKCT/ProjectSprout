@@ -42,10 +42,13 @@ public abstract class Sprout : MonoBehaviour
         {
             //Find closest enemy within range
             RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(baseRange, baseRange), 0, new Vector2(0, 0));
-            Debug.DrawRay(transform.position - new Vector3(baseRange / 2, 0, 0), new Vector2(baseRange, 0), Color.red);
+            
+            //Shows the width of the sprouts range
+            //Debug.DrawRay(transform.position - new Vector3(baseRange / 2, 0, 0), new Vector2(baseRange, 0), Color.red);
 
-            if (hit && hit.collider.CompareTag("Enemy"))
+            if (hit && hit.collider.CompareTag("Enemy") && hit.collider.GetComponent<EnemyInfo>().isDead == false)
             {
+                
                 isIdle = false;
 
                 //Determine direction to the enemy from sprout
