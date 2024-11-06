@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GuerillaSprout1Script : Sprout
+public class BumpSprout1Script : Sprout
 {
 
-    
 
     void Start()
     {
-        projectileType = "GuerillaProjectile1";
+        projectileType = "BumpProjectile1";
 
         this.growthSpeed = GetComponentInParent<BaseModule>().growthSpeed;
         this.baseDamage = GetComponentInParent<BaseModule>().baseDamage;
@@ -26,14 +25,12 @@ public class GuerillaSprout1Script : Sprout
 
     public override void HowToMoveShooting(Vector3 direction)
     {
-        PointAtEnemy(direction);
+        PointLeftRight(direction);
     }
 
     public override void HowToMoveIdle()
     {
         SwaySprout();
     }
-
-
 
 }

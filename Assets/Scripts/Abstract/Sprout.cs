@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Sprout : MonoBehaviour
 {
-   
+
 
     public float growthSpeed;
     public float baseDamage;
@@ -13,13 +13,25 @@ public abstract class Sprout : MonoBehaviour
     public float baseKnockback;
     float localGrowthRate;
 
+    public GameObject shootingPlace;
+
     public string projectileType;
     public bool isIdle = true;
 
     private void Awake()
     {
         localGrowthRate = Random.Range(20, 25);
-        //GetComponent<Transform>().localScale = new Vector3(0.05f, 0.05f, 1); //Makes the sprout small so it can grow
+        GetComponent<Transform>().localScale = new Vector3(0.05f, 0.05f, 1); //Makes the sprout small so it can grow
+    }
+
+
+    void Update()
+    {
+        if (isIdle == true)
+        {
+            SwaySprout();
+        }
+
     }
 
     public IEnumerator Growing()
@@ -38,6 +50,8 @@ public abstract class Sprout : MonoBehaviour
 
     }
 
+
+
     public IEnumerator ShotClosestEnemy()
     {
         while (true)
@@ -55,11 +69,10 @@ public abstract class Sprout : MonoBehaviour
 
                 //Determine direction to the enemy from sprout
                 Vector3 direction = hit.transform.position - this.transform.position;
-                this.transform.rotation = Quaternion.FromToRotation(Vector3.right, direction);
-
+                HowToMoveShooting(direction);
 
                 //Initialize a dart
-                GameObject spawnedProjectile = (GameObject)Instantiate(Resources.Load(projectileType), this.transform.position, Quaternion.identity);
+                GameObject spawnedProjectile = (GameObject)Instantiate(Resources.Load(projectileType), shootingPlace.transform.position, Quaternion.identity);
                 spawnedProjectile.GetComponent<Projectile>().baseDamage = this.baseDamage;
                 spawnedProjectile.GetComponent<Projectile>().knockback = this.baseKnockback;
 
@@ -84,9 +97,37 @@ public abstract class Sprout : MonoBehaviour
 
 
 
-    public void SwaySprout(int offset)
+
+    //---------------------------------------------------------------------------------------------------------------------------------------------------
+    //            Movement: rotating, swaying etc. dependend on task (idle, shooting)
+    //---------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    public virtual void HowToMoveShooting(Vector3 direction)
     {
-        GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, (10 * Mathf.Sin(Time.time + offset)));
+
+    }
+
+
+    public void PointAtEnemy(Vector3 direction)
+    {
+        this.transform.rotation = Quaternion.FromToRotation(Vector3.right, direction);
+    }
+
+    public void PointLeftRight(Vector3 direction)
+    {
+        this.transform.rotation = Quaternion.FromToRotation(Vector3.right, new Vector3(direction.x,0,0));
+    }
+
+    public virtual void HowToMoveIdle()
+    {
+
+    }
+
+
+    public void SwaySprout()
+    {
+        this.transform.rotation = Quaternion.Euler(0, 0, (10 * Mathf.Sin(Time.time)));
     }
 
 }
