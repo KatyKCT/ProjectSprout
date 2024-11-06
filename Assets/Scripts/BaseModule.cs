@@ -12,6 +12,7 @@ public class BaseModule : MonoBehaviour
     public float baseAttackSpeed;
     public float baseRange;
     public float baseKnockback;
+    public float regrowTime;
     public int maxHeight;
 
     public string branchType;

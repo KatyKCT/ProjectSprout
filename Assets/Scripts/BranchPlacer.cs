@@ -36,4 +36,13 @@ public class BranchPlacer : MonoBehaviour
         }
     }
 
+
+
+    public IEnumerator WaitAndSpawnBranch()
+    {
+        yield return new WaitForSecondsRealtime(GetComponentInParent<BaseModule>().regrowTime);
+        SpawnRandomBranch();
+    }
+
+
 }

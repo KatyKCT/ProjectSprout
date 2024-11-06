@@ -406,7 +406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5865576988925739868, guid: cb9d8bc83b1440b4d831cdf407c011ff, type: 3}
       propertyPath: baseDamage
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5865576988925739868, guid: cb9d8bc83b1440b4d831cdf407c011ff, type: 3}
       propertyPath: branchType
@@ -426,7 +426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5865576988925739868, guid: cb9d8bc83b1440b4d831cdf407c011ff, type: 3}
       propertyPath: baseAttackSpeed
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5865576988925739868, guid: cb9d8bc83b1440b4d831cdf407c011ff, type: 3}
       propertyPath: maxHeigthAverage
@@ -448,6 +448,22 @@ PrefabInstance:
     - target: {fileID: 2389495586935998158, guid: 7a394d90bcf23f14c97baa6f5656688e, type: 3}
       propertyPath: m_Name
       value: EnemySample
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481227676464610474, guid: 7a394d90bcf23f14c97baa6f5656688e, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481227676464610474, guid: 7a394d90bcf23f14c97baa6f5656688e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481227676464610474, guid: 7a394d90bcf23f14c97baa6f5656688e, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481227676464610474, guid: 7a394d90bcf23f14c97baa6f5656688e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5025428193117311537, guid: 7a394d90bcf23f14c97baa6f5656688e, type: 3}
       propertyPath: m_LocalPosition.x

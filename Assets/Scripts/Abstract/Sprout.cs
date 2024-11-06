@@ -46,7 +46,7 @@ public abstract class Sprout : MonoBehaviour
             RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(baseRange, baseRange), 0, new Vector2(0, 0), 0, 3);
             
             //Shows the width of the sprouts range
-            Debug.DrawRay(transform.position - new Vector3(baseRange / 2, 0, 0), new Vector2(baseRange, 0), Color.red);
+            //Debug.DrawRay(transform.position - new Vector3(baseRange / 2, 0, 0), new Vector2(baseRange, 0), Color.red);
 
             if (hit && hit.collider.CompareTag("Enemy") && hit.collider.GetComponent<EnemyInfo>().isDead == false)
             {

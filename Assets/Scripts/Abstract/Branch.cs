@@ -11,6 +11,13 @@ public abstract class Branch : MonoBehaviour
 
     public bool onlySpawnSprout;
 
+
+
+    //---------------------------------------------------------------------------------------------------------------------------------------------------
+    //            Basics: growing the branch, swaying the branch, spawning new branches and sprouts
+    //---------------------------------------------------------------------------------------------------------------------------------------------------
+
+
     private void Awake()
     {
         GetComponent<Transform>().localScale = new Vector3(0.05f, 0.05f, 1);
@@ -91,6 +98,12 @@ public abstract class Branch : MonoBehaviour
     }
 
 
+    //---------------------------------------------------------------------------------------------------------------------------------------------------
+    //            Mouse interactions, destroying the branch
+    //---------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
     //Get the GameObject’s mesh renderer to access the GameObject’s material and color
     public GameObject branchSpriteFront;
     public GameObject branchSpriteBack;
@@ -106,6 +119,12 @@ public abstract class Branch : MonoBehaviour
         // Change the color of the GameObject to red when the mouse is over GameObject
         branchSpriteFront.GetComponent<SpriteRenderer>().material.color = new Color(0.9f, 0.85f, 1f, 1f);
         branchSpriteBack.GetComponent<SpriteRenderer>().material.color = new Color(0.9f,0.85f,1f,1f);
+
+        if(Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            StartCoroutine(DestroyBranch());
+        }
+
     }
 
     void OnMouseExit()
@@ -116,5 +135,23 @@ public abstract class Branch : MonoBehaviour
     }
     
 
+
+
+    public IEnumerator DestroyBranch()
+    {
+
+        for(float i = 0; i < 100; i+=5)
+        foreach (SpriteRenderer child in GetComponentsInChildren<SpriteRenderer>())
+        {
+            child.GetComponent<SpriteRenderer>().color = Color.Lerp(new Color(1f, 1f, 1f, 1f), new Color(0.6f, 0.6f, 0.6f, 1f), i / 100);
+            yield return new WaitForEndOfFrame();
+        }
+
+        GetComponentInParent<BranchPlacer>().isAvailable = true;
+        GetComponentInParent<BranchPlacer>().StartCoroutine(GetComponentInParent<BranchPlacer>().WaitAndSpawnBranch());
+
+        Destroy(gameObject);
+
+    }
 
 }
