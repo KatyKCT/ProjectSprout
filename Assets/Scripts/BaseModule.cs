@@ -13,7 +13,6 @@ public class BaseModule : MonoBehaviour
     public float baseRange;
     public float baseKnockback;
     public int maxHeight;
-    public int maxHeigthAverage;
 
     public string branchType;
     public string sproutType;
@@ -21,7 +20,6 @@ public class BaseModule : MonoBehaviour
 
     private void Start()
     {
-        maxHeight = maxHeigthAverage + Random.Range(-1, 2);
         BaseSpawnBranchPlace(0f, 0f);
     }
 

@@ -14,7 +14,6 @@ public class GuerillaBranch1Script : Branch
         this.sproutType = GetComponent<BranchInfo>().sproutType;
         this.currentHeigth = GetComponent<BranchInfo>().currentHeigth;
 
-        GetComponent<Transform>().localScale = new Vector3(0.05f, 0.05f, 1);
         StartCoroutine(Growing());
 
     }

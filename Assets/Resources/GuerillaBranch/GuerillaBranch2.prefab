@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8208594148509986134}
   - component: {fileID: 8538492550087205422}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GuerillaBranch2Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,8 @@ GameObject:
   - component: {fileID: 6333377893794828527}
   - component: {fileID: 1780080147729379496}
   - component: {fileID: 9176468083641978550}
-  m_Layer: 0
+  - component: {fileID: 6992644420385359915}
+  m_Layer: 3
   m_Name: GuerillaBranch2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,6 +175,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf0007238763c042b0567e5563c6f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  branchType: 
+  sproutType: 
+  currentHeigth: 0
+  onlySpawnSprout: 0
+  branchSpriteFront: {fileID: 7083625333147514295}
+  branchSpriteBack: {fileID: 6545823914548722921}
+--- !u!60 &6992644420385359915
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6615056597522023572}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.34439123, y: 0.639073}
+      - {x: 0.23318279, y: 0.5718904}
+      - {x: 0.22667515, y: 0.3064733}
+      - {x: 0.026243687, y: 0.28196117}
+      - {x: -0.15806174, y: 0.7068027}
+      - {x: -0.28191483, y: 0.76036453}
+      - {x: -0.34303916, y: 0.6552987}
+      - {x: -0.13838315, y: 0.41449898}
+      - {x: -0.18208891, y: 0.20925906}
+      - {x: -0.0030480027, y: -0.006045878}
+      - {x: 0.25582254, y: 0.15887669}
+      - {x: 0.42952633, y: 0.58126}
+  m_UseDelaunayMesh: 0
 --- !u!1 &7083625333147514295
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +248,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4054612114427846664}
   - component: {fileID: 5482824463178131828}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GuerillaBranch2Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}

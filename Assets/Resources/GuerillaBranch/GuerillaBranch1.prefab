@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3304493390011704564}
   - component: {fileID: 7011813586638872159}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GuerillaBranch1Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,8 @@ GameObject:
   - component: {fileID: 3414827506482700092}
   - component: {fileID: 6651062234128933117}
   - component: {fileID: 8974650702515748952}
-  m_Layer: 0
+  - component: {fileID: 2153878106759733086}
+  m_Layer: 3
   m_Name: GuerillaBranch1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,6 +160,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 516a7322c36ea984db1182bba050e1e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  branchType: 
+  sproutType: 
+  currentHeigth: 0
+  onlySpawnSprout: 0
+  branchSpriteFront: {fileID: 8984318992202882144}
+  branchSpriteBack: {fileID: 4948037775555205682}
 --- !u!114 &8974650702515748952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +181,41 @@ MonoBehaviour:
   branchType: 
   sproutType: 
   currentHeigth: 0
+--- !u!70 &2153878106759733086
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8592591417645321816}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.44}
+  m_Size: {x: 0.43, y: 0.86}
+  m_Direction: 0
 --- !u!1 &8984318992202882144
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2985385486345631708}
   - component: {fileID: 6786776344016306649}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GuerillaBranch1Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}

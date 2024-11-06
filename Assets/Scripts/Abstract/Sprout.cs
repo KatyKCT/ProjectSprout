@@ -19,6 +19,7 @@ public abstract class Sprout : MonoBehaviour
     private void Awake()
     {
         localGrowthRate = Random.Range(20, 25);
+        //GetComponent<Transform>().localScale = new Vector3(0.05f, 0.05f, 1); //Makes the sprout small so it can grow
     }
 
     public IEnumerator Growing()
@@ -42,10 +43,10 @@ public abstract class Sprout : MonoBehaviour
         while (true)
         {
             //Find closest enemy within range
-            RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(baseRange, baseRange), 0, new Vector2(0, 0));
+            RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(baseRange, baseRange), 0, new Vector2(0, 0), 0, 3);
             
             //Shows the width of the sprouts range
-            //Debug.DrawRay(transform.position - new Vector3(baseRange / 2, 0, 0), new Vector2(baseRange, 0), Color.red);
+            Debug.DrawRay(transform.position - new Vector3(baseRange / 2, 0, 0), new Vector2(baseRange, 0), Color.red);
 
             if (hit && hit.collider.CompareTag("Enemy") && hit.collider.GetComponent<EnemyInfo>().isDead == false)
             {
@@ -60,13 +61,14 @@ public abstract class Sprout : MonoBehaviour
                 //Initialize a dart
                 GameObject spawnedProjectile = (GameObject)Instantiate(Resources.Load(projectileType), this.transform.position, Quaternion.identity);
                 spawnedProjectile.GetComponent<Projectile>().baseDamage = this.baseDamage;
-
-                //Apply force and direction to the dart
-                spawnedProjectile.GetComponent<Rigidbody2D>().AddForce(200 * direction);
-                spawnedProjectile.transform.rotation = Quaternion.FromToRotation(Vector3.right, direction);
                 spawnedProjectile.GetComponent<Projectile>().knockback = this.baseKnockback;
 
+                //Apply force and direction to the dart
+                spawnedProjectile.transform.rotation = Quaternion.FromToRotation(Vector3.right, direction);
+                spawnedProjectile.GetComponent<Rigidbody2D>().AddForce(200 * direction);
+
                 yield return new WaitForSecondsRealtime(baseAttackSpeed);
+                
             }
             else
             {

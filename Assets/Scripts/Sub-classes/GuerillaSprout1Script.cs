@@ -19,7 +19,6 @@ public class GuerillaSprout1Script : Sprout
 
         swayOffset = Random.Range(-10, 10);
 
-        GetComponent<Transform>().localScale = new Vector3(0.05f, 0.05f, 1); //Makes the sprout small so it can grow
         StartCoroutine(Growing());
         StartCoroutine(ShotClosestEnemy());
 

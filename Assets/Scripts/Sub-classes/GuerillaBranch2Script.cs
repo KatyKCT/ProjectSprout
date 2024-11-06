@@ -13,7 +13,6 @@ public class GuerillaBranch2Script : Branch
         this.sproutType = GetComponent<BranchInfo>().sproutType;
         this.currentHeigth = GetComponent<BranchInfo>().currentHeigth;
 
-        GetComponent<Transform>().localScale = new Vector3(0.05f, 0.05f, 1); //Makes the branch small so it can grow
         StartCoroutine(Growing());
 
     }

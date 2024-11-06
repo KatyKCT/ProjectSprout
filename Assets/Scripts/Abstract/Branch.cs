@@ -11,7 +11,10 @@ public abstract class Branch : MonoBehaviour
 
     public bool onlySpawnSprout;
 
-
+    private void Awake()
+    {
+        GetComponent<Transform>().localScale = new Vector3(0.05f, 0.05f, 1);
+    }
 
     public void SpawnBranchPlace(float x, float y)
     {
@@ -86,6 +89,32 @@ public abstract class Branch : MonoBehaviour
         }
 
     }
+
+
+    //Get the GameObject’s mesh renderer to access the GameObject’s material and color
+    public GameObject branchSpriteFront;
+    public GameObject branchSpriteBack;
+
+    void Start()
+    {
+        branchSpriteFront.GetComponent<SpriteRenderer>().material.color = Color.white;
+        branchSpriteBack.GetComponent<SpriteRenderer>().material.color = Color.white;
+    }
+
+    void OnMouseOver()
+    {
+        // Change the color of the GameObject to red when the mouse is over GameObject
+        branchSpriteFront.GetComponent<SpriteRenderer>().material.color = new Color(0.9f, 0.85f, 1f, 1f);
+        branchSpriteBack.GetComponent<SpriteRenderer>().material.color = new Color(0.9f,0.85f,1f,1f);
+    }
+
+    void OnMouseExit()
+    {
+        // Reset the color of the GameObject back to normal
+        branchSpriteFront.GetComponent<SpriteRenderer>().material.color = Color.white;
+        branchSpriteBack.GetComponent<SpriteRenderer>().material.color = Color.white;
+    }
+    
 
 
 }
